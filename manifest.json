@@ -1,0 +1,14 @@
+{
+    "name": "Learn Enhancer",
+    "version": "1.5",
+    "manifest_version": 2,
+    "content_scripts": [
+    {
+      "matches": ["http://learn.canterbury.ac.nz/*", "https://blackboard.vuw.ac.nz/*"],
+      "js": ["domready.js", "content.js"],
+      "run_at": "document_start"
+    }
+    ],
+    "icons": {"48": "48.png",
+              "128": "128.png" }
+}
