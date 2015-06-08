@@ -1,0 +1,32 @@
+.header {
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.content {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.decaf-border, .course-content ul li.section.main, .block_news_items .content ul li {
+  border: none !important;
+}
+.path-mod-forum .forumheaderlist .discussion .topic, .path-mod-forum .forumheaderlist .discussion .topic.starter, .path-mod-forum .forumheaderlist .discussion .picture, .path-mod-forum .forumheaderlist .discussion .author, .path-mod-forum .forumheaderlist .discussion .replies, .path-mod-forum .forumheaderlist .discussion .lastpost {
+  vertical-align: middle !important;
+}
+img.icon, #page-header, #back-to-top, #awesomebar {
+  display: none !important;
+}
+body {
+  padding-top: 0px !important;
+}
+.navbar-static-top .navbar-inner {
+  background: none #ccc;
+  filter: none;
+}
+.breadcrumb > li {
+  text-shadow: none !important;
+}
+.decaf-border:before, .course-content ul li.section.main:before {
+  display: none !important;
+  content: none !important;
+}
