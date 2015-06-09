@@ -7,7 +7,7 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.decaf-border, .course-content ul li.section.main, .block_news_items .content ul li {
+.decaf-border, .course-content ul li.section.main, .block_news_items .content ul li, #page-footer {
   border: none !important;
 }
 .path-mod-forum .forumheaderlist .discussion .topic, .path-mod-forum .forumheaderlist .discussion .topic.starter, .path-mod-forum .forumheaderlist .discussion .picture, .path-mod-forum .forumheaderlist .discussion .author, .path-mod-forum .forumheaderlist .discussion .replies, .path-mod-forum .forumheaderlist .discussion .lastpost {
