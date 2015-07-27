@@ -2,8 +2,6 @@ chrome.webRequest.onHeadersReceived.addListener(function(details) {
   var contentTypeIndex = -1;
   var contentDispositionIndex = -1;
   for(var i = 0; i < details.responseHeaders.length; i++) {
-    console.log(details.responseHeaders[i].name);
-    console.log(details.responseHeaders[i].value);
     if(details.responseHeaders[i].name.toLowerCase() == 'content-type') {
       if(details.responseHeaders[i].value.toLowerCase() == 'application/x-forcedownload') {
         contentTypeIndex = i;
@@ -12,7 +10,7 @@ chrome.webRequest.onHeadersReceived.addListener(function(details) {
       contentDispositionIndex = i;
     }
   }
-  var match = details.responseHeaders[contentDispositionIndex].toLowerCase().match(/filename=".*?\.(pdf|jpg|png|jpeg)"/)
+  var match = details.responseHeaders[contentDispositionIndex].value.toLowerCase().match(/filename=".*?\.(pdf|jpg|png|jpeg)"/)
   if(match != null) {
     var extension = match[1];
     details.responseHeaders[contentDispositionIndex].value = 'inline';
