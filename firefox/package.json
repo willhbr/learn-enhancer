@@ -1,0 +1,13 @@
+{
+  "title": "Learn Enhancer",
+  "name": "learnenhancer",
+  "version": "0.0.1",
+  "description": "Better learn",
+  "main": "index.js",
+  "author": "Will Richardson",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT"
+}
