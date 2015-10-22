@@ -8,12 +8,7 @@ DomReady.ready(function() {
       window.location.replace(frame.src);
     }
   }
-  // Lol, James..
-  if(document.URL.indexOf("blackboard.vuw.ac.nz/") != -1) {
-    var nameLink = document.getElementById("global-nav-link");
-    var oldHTML = nameLink.innerHTML;
-    nameLink.innerHTML = oldHTML.replace("James Wright", '"Will is Awesome!" - James Wright');
-  } else {
+  if(document.URL.indexOf("blackboard.vuw.ac.nz/") == -1) {
     var main = document.getElementById('region-main');
     main.className = "span9 pull-right";
     var side = document.getElementById('block-region-side-pre');
