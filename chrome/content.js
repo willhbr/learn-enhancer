@@ -29,8 +29,17 @@ function aprilFools() {
     },
     function() {
       window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+    },
+    function() {
+      add("<style>div{transform:rotate(180deg);}</style>")
+    },
+    function() {
+      add("<style>body {animation: marquee 10s linear infinite;position:absolute;width:100%;} @keyframes marquee {0% {left: 100%;} 100% {left: -100%;}}</style>")
+    },
+    function() {
+      add("<style>body {animation: marquee 0.1s linear infinite;position:absolute;width:100%;} @keyframes marquee {0% {left: -0.5%;top: 0.5%;} 50% {top: 0%;left: 0.5%;} 100% {left: 0.5%;left: 0.5%;}}</style>")
     }
-  ][Math.floor(Math.random() * 6)]();
+  ][Math.floor(Math.random() * 9)]();
 }
 
 DomReady.ready(function() {
