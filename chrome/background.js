@@ -1,6 +1,7 @@
-chrome.webRequest.onHeadersReceived.addListener(function(details) {
+var listener = function(details) {
   var contentTypeIndex = -1;
   var contentDispositionIndex = -1;
+  console.log(details);
   for(var i = 0; i < details.responseHeaders.length; i++) {
     if(details.responseHeaders[i].name.toLowerCase() == 'content-type') {
       if(details.responseHeaders[i].value.toLowerCase() == 'application/x-forcedownload') {
@@ -10,11 +11,18 @@ chrome.webRequest.onHeadersReceived.addListener(function(details) {
       contentDispositionIndex = i;
     }
   }
-  var match = details.responseHeaders[contentDispositionIndex].value.toLowerCase().match(/filename=".*?\.(pdf|jpg|png|jpeg)"/)
-  if(match != null) {
-    var extension = match[1];
+  
+  if(contentDispositionIndex !== -1) {
     details.responseHeaders[contentDispositionIndex].value = 'inline';
-    details.responseHeaders[contentTypeIndex].value = 'application/' + extension;
+    if(contentTypeIndex !== -1) {
+      var match = details.responseHeaders[contentDispositionIndex].value.toLowerCase().match(/filename=".*?\.(pdf|jpg|png|jpeg)"/)
+      var extension = match[1];
+      if(match) {
+        details.responseHeaders[contentTypeIndex].value = 'application/' + extension;
+      }
+    }
   }
   return {responseHeaders:details.responseHeaders};
-}, {urls: ['http://learn.canterbury.ac.nz/pluginfile.php/*']}, ['blocking', 'responseHeaders']);
+}
+
+chrome.webRequest.onHeadersReceived.addListener(listener, {urls: ['http://learn.canterbury.ac.nz/pluginfile.php/*']}, ['blocking', 'responseHeaders']);
