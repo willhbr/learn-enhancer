@@ -1,11 +1,18 @@
-.header {
+aside .header {
+  background: #81C784 !important;
   text-align: center;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
-.content {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+
+.block .header .title h2 {
+  color: white !important;
+}
+
+aside .content {
+  background: #F5F5F5 !important;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 .decaf-border, .course-content ul li.section.main, .block_news_items .content ul li, #page-footer {
   border: none !important;
@@ -13,20 +20,56 @@
 .path-mod-forum .forumheaderlist .discussion .topic, .path-mod-forum .forumheaderlist .discussion .topic.starter, .path-mod-forum .forumheaderlist .discussion .picture, .path-mod-forum .forumheaderlist .discussion .author, .path-mod-forum .forumheaderlist .discussion .replies, .path-mod-forum .forumheaderlist .discussion .lastpost {
   vertical-align: middle !important;
 }
+
+.forumpost {
+  border: none !important;
+}
+
 img.icon, #page-header, #back-to-top, #awesomebar {
   display: none !important;
 }
+
+.atto_group img {
+  display: block !important;
+}
+
 body {
   padding-top: 0px !important;
 }
 .navbar-static-top .navbar-inner {
-  background: none #5B9D39;
+  background: none #4CAF50 !important;
   filter: none;
 }
+
+.navbar-static-top .navbar-inner a {
+  color: white !important;
+}
+
+.navbar-static-top .navbar-inner a:hover {
+  color: #A5D6A7 !important;
+}
+
 .breadcrumb > li {
   text-shadow: none !important;
 }
 .decaf-border:before, .course-content ul li.section.main:before {
   display: none !important;
   content: none !important;
+}
+
+.breadcrumb-nav .brand {
+  text-shadow: none !important;
+}
+
+a:visited {
+  color: #673AB7 !important;
+}
+
+a:hover {
+  color: #0D47A1 !important;
+  text-decoration: none !important;
+}
+
+a {
+  color: #1976D2 !important;
 }
