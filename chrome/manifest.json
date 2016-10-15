@@ -1,6 +1,6 @@
 {
     "name": "Learn Enhancer",
-    "version": "1.9.0",
+    "version": "1.10.0",
     "manifest_version": 2,
     "content_scripts": [
     {
