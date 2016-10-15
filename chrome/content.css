@@ -49,6 +49,10 @@ body {
   color: #A5D6A7 !important;
 }
 
+.navbar-static-top .navbar-inner .menu a {
+  color: #37474F !important;
+}
+
 .breadcrumb > li {
   text-shadow: none !important;
 }
