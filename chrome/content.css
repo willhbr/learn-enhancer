@@ -17,7 +17,9 @@ aside .content {
 .decaf-border, .course-content ul li.section.main, .block_news_items .content ul li, #page-footer {
   border: none !important;
 }
-.path-mod-forum .forumheaderlist .discussion .topic, .path-mod-forum .forumheaderlist .discussion .topic.starter, .path-mod-forum .forumheaderlist .discussion .picture, .path-mod-forum .forumheaderlist .discussion .author, .path-mod-forum .forumheaderlist .discussion .replies, .path-mod-forum .forumheaderlist .discussion .lastpost {
+.path-mod-forum .forumheaderlist .discussion .topic, .path-mod-forum .forumheaderlist .discussion .topic.starter,
+  .path-mod-forum .forumheaderlist .discussion .picture, .path-mod-forum .forumheaderlist .discussion .author,
+  .path-mod-forum .forumheaderlist .discussion .replies, .path-mod-forum .forumheaderlist .discussion .lastpost {
   vertical-align: middle !important;
 }
 
@@ -25,7 +27,7 @@ aside .content {
   border: none !important;
 }
 
-img.icon, #page-header, #back-to-top, #awesomebar {
+img.icon, #page-header, #back-to-top, #awesomebar, .frontpage-img {
   display: none !important;
 }
 
@@ -33,23 +35,38 @@ img.icon, #page-header, #back-to-top, #awesomebar {
   display: block !important;
 }
 
-body {
-  padding-top: 0px !important;
+.usermenu .moodle-actionmenu .toggle-display .userbutton .usertext {
+  background-color: none !important;
 }
-.navbar-static-top .navbar-inner {
+
+@media (max-width: 767px) {
+  /* I don't think we need to do anything here */
+}
+
+@media (min-width: 768px) {
+  .navbar .usermenu, .navbar .navbar-inner {
+    margin-top: -30px !important;
+  }
+  body {
+    padding-top: 55px !important;
+  }
+}
+
+
+.navbar-fixed-top .navbar-inner {
   background: none #4CAF50 !important;
   filter: none;
 }
 
-.navbar-static-top .navbar-inner a {
+.navbar-fixed-top .navbar-inner a {
   color: white !important;
 }
 
-.navbar-static-top .navbar-inner a:hover {
+.navbar-fixed-top .navbar-inner a:hover {
   color: #A5D6A7 !important;
 }
 
-.navbar-static-top .navbar-inner .menu a {
+.navbar-fixed-top .navbar-inner .menu a {
   color: #37474F !important;
 }
 
