@@ -58,6 +58,10 @@ img.icon, #page-header, #back-to-top, #awesomebar, .frontpage-img {
   filter: none;
 }
 
+.usertext {
+  background: none #4CAF50 !important;
+}
+
 .navbar-fixed-top .navbar-inner a {
   color: white !important;
 }
