@@ -1,27 +1,39 @@
+const models = {
+  ignored_courses: {
+    get_value: (elem) => elem.value.split("\n"),
+    show_value: (elem, value) => elem.value = value.join("\n"),
+    initial_value: []
+  },
+  auto_login: {
+    get_value: (elem) => elem.checked,
+    show_value: (elem, value) => elem.checked = value,
+    initial_value: false
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Use default value color = 'red' and likesColor = true.
-  chrome.storage.sync.get({
-    autologin: false,
-    ignored_courses: []
-  }, (data) => {
-    document.getElementById('autologin').checked = data.autologin;
-    document.getElementById('ignored_courses').value = data.ignored_courses.join('\n');
+  let defaults = {};
+  for (let key in models) {
+    defaults[key] = models[key].initial_value;
+  }
+  chrome.storage.sync.get(defaults, (data) => {
+    for (let key in models) {
+      models[key].show_value(document.getElementById(key), data[key]);
+    }
   });
 });
 
 document.getElementById('save').addEventListener('click', () => {
-  let autologin = document.getElementById('autologin').checked;
-  let ignored_courses = document.getElementById('ignored_courses').value.split("\n");
-  console.log(autologin, ignored_courses);
-  chrome.storage.sync.set({
-    autologin: autologin,
-    ignored_courses: ignored_courses
-  }, () => {
+  let values = {};
+  for (let key in models) {
+    values[key] = models[key].get_value(document.getElementById(key));
+  }
+  chrome.storage.sync.set(values, () => {
     // Update status to let user know options were saved.
-    var status = document.getElementById('status');
-    status.textContent = 'Options saved.';
+    let indicator = document.getElementById('status');
+    indicator.textContent = 'Settings saved.';
     setTimeout(() => {
-      status.textContent = '';
+      indicator.textContent = '';
     }, 750);
   });
 });
