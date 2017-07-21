@@ -16,7 +16,35 @@ DomReady.ready(() => {
       aprilFools();
     }
   }
+
+  //Delete menu items
+  document.getElementsByClassName('block_menu_site_and_course')[0].remove();
+  document.getElementsByClassName('block_site_main_menu')[0].remove();
   
+  //Delete  courses, identified by title attribute in the <a> node (Use 'Inspect' tool to find this easily)
+  var titles = ['COSC420S1', 'COSC261S1', 'SENG302', 'SENG401', 'COSC428S1']; // TODO Can't get the following to work: 'CSSE PG', 'CSSE Notices', 'Engineering Work Experience'];
+  titles.forEach( function(title) {
+    var query = '[title="' + title + '"]';
+    var node = document.querySelector(query);
+    if (node !== null) {
+      node.parentNode.parentNode.remove(); // Delete containing <li>
+    }
+  });
+
+
+  // Auto-login part 1 
+  var loginbtn = document.getElementsByClassName('ucloginbtn')[0];
+  if (loginbtn !== undefined) {
+    loginbtn.click();
+  }
+  
+  // Auto-login part 2 with credential auto-fill
+  var loginbtn = document.querySelector('#login > div:nth-child(2) > section > button');
+  if (loginbtn !== null) {
+    new Promise(resolve => setTimeout(function() {}, 2000));
+    loginbtn.click();
+  }
+
   // Lol, James..
   if(document.URL.indexOf("blackboard.vuw.ac.nz/") != -1) {
     var nameLink = document.getElementById("global-nav-link");
