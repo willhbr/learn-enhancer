@@ -23,17 +23,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.getElementById('save').addEventListener('click', () => {
+const button = document.getElementById('save');
+button.addEventListener('click', () => {
   let values = {};
   for (let key in models) {
     values[key] = models[key].get_value(document.getElementById(key));
   }
   chrome.storage.sync.set(values, () => {
     // Update status to let user know options were saved.
-    let indicator = document.getElementById('status');
-    indicator.textContent = 'Settings saved.';
-    setTimeout(() => {
-      indicator.textContent = '';
-    }, 750);
+    button.textContent = 'Saved!';
+    let oldBackgroundColor = button.style.backgroundColor;
+    button.style.backgroundColor = '#43A047';
+    let oldBorderColor = button.style.borderColor;
+    button.style.borderColor = '#2E7D32';
+    window.setTimeout(() => {
+      button.style.backgroundColor = oldBackgroundColor;
+      button.style.borderColor = oldBorderColor;
+      button.textContent = 'Save';
+    }, 1000)
   });
 });

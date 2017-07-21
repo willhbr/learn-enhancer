@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head><title>Learn Enhancer Preferences</title></head>
+  <link rel="stylesheet" type="text/css" href="options.css">
   <body>
 
-    Preferences:
-    <br>
-    <input type="checkbox" id="auto_login" class="preference">
-    <label for="auto_login">
-      Autologin feature. Requires you to have your credentials automatically filled in by the browser.
-    </label>
+    <h1>Learn Enhancer</h1>
 
-    <br>
+    <div class="option-section">
+      <h3>Auto-Login</h3>
+      <p class="info">
+        Experimental! Automatically log in to Learn by clicking on the correct buttons.
+        This relies on your password being saved by Chrome.
+        Depending on your OS, you may need to click into the password field as soon as
+        the page loads so that the password is correctly populated.
+      </p>
+      <input type="checkbox" id="auto_login" class="preference">
+      <label for="auto_login">Enable auto-login.</label>
+    </div>
 
-    <textarea rows="4" cols="20"
-      placeholder="Enter courses to ignore each on newlines"
-      id="ignored_courses"></textarea>
+    <div class="option-section">
+      <h3>Hide Courses</h3>
+      <p class="info">
+        Add the titles of courses to hide them from the sidebar.
+        Useful in second semester when there are courses you no longer care about.
+        Put one course code per line, you may or may not need the semester suffix
+        after the code. So try both <code>SENG365</code> and <code>SENG365S1</code>.
+      </p>
+      <label for="ignored_courses">Ignored courses</label>
+      <br>
+      <textarea rows="6" cols="30"
+        placeholder="Enter courses to ignore, one per line"
+        id="ignored_courses"></textarea>
+    </div>
 
-    <div id="status"></div>
-    <button id="save">Save</button>
+    <div class="actions">
+      <button id="save">Save</button>
+    </div>
+
+    <footer>
+      <p>&copy; 2014-2017 <a href="http://javanut.net">Will Richardson</a>.</p>
+      <p>Many hours of potential study time were wasted making this as useful as possible to students.
+      If you appreciate what Learn Enhancer does, share it with your friends and classmates.</p>
+      <p>Many thanks to <a href="https://github.com/agronauts">Patrick Nicholls</a> for implementing the auto-login
+      and preferences screen.</p>
+    </footer>
 
     <script src="options.js"></script>
   </body>

@@ -25,26 +25,24 @@ DomReady.ready(() => {
       } else {
         let button = document.querySelector('form#login button');
         if (button) {
-          window.setTimeout(() => button.click(), 5000);
+          window.setTimeout(() => button.click(), 1000);
+          window.setTimeout(() => button.click(), 4000);
         }
       }
     }
     data.ignored_courses.forEach((title) => {
       let node = document.querySelector('.block_course_list [title="' + title + '"]');
       if (node !== null) {
-        node.parentNode.parentNode.remove(); // Delete containing <li>
+        node.parentNode.parentNode.remove();
       }
     });
   });
-  
-  // Lol, James..
-  if (document.URL.indexOf("blackboard.vuw.ac.nz/") == -1) {
-    let main = document.getElementById('region-main');
-    if (!main) {
-      return;
-    }
+  let main = document.getElementById('region-main');
+  if (main) {
     main.className = "span9 pull-right";
     let side = document.getElementById('block-region-side-pre');
-    side.className = "span3 desktop-first-column decaf-border decaf-border-right block-region";
+    if (side) {
+      side.className = "span3 desktop-first-column decaf-border decaf-border-right block-region";
+    }
   }
 });

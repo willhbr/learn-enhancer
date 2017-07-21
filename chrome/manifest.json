@@ -1,10 +1,13 @@
 {
     "name": "Learn Enhancer",
-    "version": "1.10.2",
+    "version": "2.0.0",
     "manifest_version": 2,
     "content_scripts": [
       {
-        "matches": ["http://learn.canterbury.ac.nz/*", "https://login.canterbury.ac.nz/*", "https://blackboard.vuw.ac.nz/*"],
+        "matches": [
+          "http://learn.canterbury.ac.nz/*",
+          "https://login.canterbury.ac.nz/idp/Authn/UserPassword"
+        ],
         "js": ["domready.js", "pranks.js", "content.js"],
         "run_at": "document_start"
       },
@@ -20,7 +23,9 @@
     "permissions": [
       "webRequestBlocking",
       "webRequest",
-      "storage"
+      "storage",
+      "http://learn.canterbury.ac.nz/*",
+      "https://login.canterbury.ac.nz/idp/Authn/UserPassword"
     ],
     "icons": {"48": "48.png",
               "128": "128.png" },

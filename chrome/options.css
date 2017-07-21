@@ -1,0 +1,40 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.option-section {
+  margin-top: 20px;
+}
+
+p.info {
+  font-size: 1.1em;
+  color: #333;
+}
+
+button#save {
+  background: #9C27B0;
+  border: 1px solid #6A1B9A;
+  border-radius: 4px;
+  font-size: 1.15em;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+  color: #eee;
+}
+
+.actions {
+  width: 100%;
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  margin-top: 100px;
+  color: #555;
+}
