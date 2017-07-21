@@ -4,7 +4,7 @@
     "manifest_version": 2,
     "content_scripts": [
     {
-      "matches": ["http://learn.canterbury.ac.nz/*", "https://blackboard.vuw.ac.nz/*"],
+      "matches": ["http://learn.canterbury.ac.nz/*", "http://login.canterbury.ac.nz/*", "https://blackboard.vuw.ac.nz/*"],
       "js": ["domready.js", "pranks.js", "content.js"],
       "css" : ["content.css"],
       "run_at": "document_start"
@@ -16,8 +16,12 @@
     "permissions": [
       "webRequestBlocking",
       "webRequest",
-      "http://learn.canterbury.ac.nz/*"
+      "storage",
+      "http://learn.canterbury.ac.nz/*",
+      "https://login.canterbury.ac.nz/*"
     ],
     "icons": {"48": "48.png",
-              "128": "128.png" }
+              "128": "128.png" },
+    "options_page": "options.html"
+
 }
