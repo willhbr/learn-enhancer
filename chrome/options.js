@@ -1,29 +1,27 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Use default value color = 'red' and likesColor = true.
+  chrome.storage.sync.get({
+    autologin: false,
+    ignored_courses: []
+  }, (data) => {
+    document.getElementById('autologin').checked = data.autologin;
+    document.getElementById('ignored_courses').value = data.ignored_courses.join('\n');
+  });
+});
 
-// Saves options to chrome.storage
-function save_options() {
-  var autologin = document.getElementById('autologin').checked;
+document.getElementById('save').addEventListener('click', () => {
+  let autologin = document.getElementById('autologin').checked;
+  let ignored_courses = document.getElementById('ignored_courses').value.split("\n");
+  console.log(autologin, ignored_courses);
   chrome.storage.sync.set({
     autologin: autologin,
-  }, function() {
+    ignored_courses: ignored_courses
+  }, () => {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
-    setTimeout(function() {
+    setTimeout(() => {
       status.textContent = '';
     }, 750);
   });
-}
-
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
-function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
-  chrome.storage.sync.get({
-    autologin: false
-  }, function(items) {
-    document.getElementById('autologin').value = items.autologin;
-  });
-}
-document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+});

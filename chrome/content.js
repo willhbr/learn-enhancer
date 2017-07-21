@@ -3,15 +3,15 @@ DomReady.ready(() => {
   if(thing != null) {
     return window.location.replace(thing.data);
   } else {
-    var frame = document.getElementById("cleanSlate");
-    if(frame != null) {
+    let frame = document.getElementById("cleanSlate");
+    if (frame != null) {
       return window.location.replace(frame.src);
     }
   }
   
-  var date = new Date();
+  let date = new Date();
   if (date.getDate() == 1 && date.getMonth() == 3) {
-    var rand = Math.random();
+    let rand = Math.random();
     if(rand < 0.15) {
       aprilFools();
     }
@@ -28,23 +28,25 @@ DomReady.ready(() => {
   }
   
   //Delete  courses, identified by title attribute in the <a> node (Use 'Inspect' tool to find this easily)
-  var titles = ['COSC420S1', 'COSC261S1', 'SENG302', 'SENG401', 'COSC428S1']; // TODO Can't get the following to work: 'CSSE PG', 'CSSE Notices', 'Engineering Work Experience'];
-  titles.forEach( function(title) {
-    var query = '[title="' + title + '"]';
-    var node = document.querySelector(query);
-    if (node !== null) {
-      node.parentNode.parentNode.remove(); // Delete containing <li>
-    }
+  chrome.storage.sync.get('ignored_courses', (data) => {
+    data.ignored_courses.forEach((title) => {
+      let node = document.querySelector('[title="' + title + '"]');
+      if (node !== null) {
+        node.parentNode.parentNode.remove(); // Delete containing <li>
+      }
+    });
   });
 
-
   // Auto-login 
-  chrome.storage.sync.get("autologin", function(data) {
+  chrome.storage.sync.get("autologin", (data) => {
     console.log(data.autologin)
     if (data.autologin === true) {
-      var loginbtn = document.getElementsByClassName('ucloginbtn')[0];
-      if (loginbtn !== undefined) {
+      let loginbtn = document.getElementsByClassName('ucloginbtn')[0];
+      if (loginbtn) {
         loginbtn.click();
+      } else {
+        let button = document.querySelector('form#login button');
+        if (button) window.setTimeout(() => button.click(), 500);
       }
     }
   });
