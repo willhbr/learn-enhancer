@@ -1,0 +1,6 @@
+form#login .control-group > label > label:before {
+  content: "\f0a8";
+}
+form#login .control-group > label > label {
+  color: #1976D2 !important;
+}

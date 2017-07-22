@@ -22,12 +22,6 @@ DomReady.ready(() => {
       let buttons = document.getElementsByClassName('ucloginbtn');
       if (buttons && buttons[0]) {
         buttons[0].click();
-      } else {
-        let button = document.querySelector('form#login button');
-        if (button) {
-          window.setTimeout(() => button.click(), 1000);
-          window.setTimeout(() => button.click(), 4000);
-        }
       }
     }
     data.ignored_courses.forEach((title) => {
