@@ -1,6 +1,6 @@
-DomReady.ready(() => {
+(() => {
   let container = document.getElementById("resourceobject");
-  if(container) {
+  if (container) {
     return window.location.replace(container.data);
   } else {
     let frame = document.getElementById("cleanSlate");
@@ -8,12 +8,12 @@ DomReady.ready(() => {
       return window.location.replace(frame.src);
     }
   }
-  
+
   let date = new Date();
   if (date.getDate() == 1 && date.getMonth() == 3) {
     let rand = Math.random();
-    if(rand < 0.15) {
-      aprilFools();
+    if (rand < 0.15) {
+      return aprilFools();
     }
   }
 
@@ -39,4 +39,4 @@ DomReady.ready(() => {
       side.className = "span3 desktop-first-column decaf-border decaf-border-right block-region";
     }
   }
-});
+})();
