@@ -5,13 +5,14 @@
   "content_scripts": [
     {
       "matches": [
-        "http://learn.canterbury.ac.nz/*"
+        "http://learn.canterbury.ac.nz/*",
+        "https://learn.canterbury.ac.nz/*"
       ],
       "js": [
         "pranks.js",
         "content.js"
       ],
-      "run_at": "document_start"
+      "run_at": "document_end"
     },
     {
       "matches": [
@@ -27,10 +28,12 @@
     },
     {
       "matches": [
-        "http://learn.canterbury.ac.nz/*"
+        "http://learn.canterbury.ac.nz/*",
+        "https://learn.canterbury.ac.nz/*"
       ],
       "exclude_matches": [
-        "http://learn.canterbury.ac.nz/pluginfile.php/*"
+        "http://learn.canterbury.ac.nz/pluginfile.php/*",
+        "https://learn.canterbury.ac.nz/pluginfile.php/*"
       ],
       "css": [
         "content.css"

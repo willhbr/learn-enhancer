@@ -1,5 +1,7 @@
 (() => {
+
   let container = document.getElementById("resourceobject");
+
   if (container) {
     return window.location.replace(container.data);
   } else {
@@ -24,7 +26,7 @@
         buttons[0].click();
       }
     }
-    data.ignored_courses.forEach((title) => {
+    data.ignored_courses && data.ignored_courses.forEach((title) => {
       let node = document.querySelector('.block_course_list [title="' + title + '"]');
       if (node !== null) {
         node.parentNode.parentNode.remove();
