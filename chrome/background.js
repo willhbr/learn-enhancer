@@ -11,7 +11,7 @@ var listener = function(details) {
       contentDispositionIndex = i;
     }
   }
-  
+
   if(contentDispositionIndex !== -1) {
     details.responseHeaders[contentDispositionIndex].value = 'inline';
     if(contentTypeIndex !== -1) {
@@ -25,4 +25,4 @@ var listener = function(details) {
   return {responseHeaders:details.responseHeaders};
 }
 
-chrome.webRequest.onHeadersReceived.addListener(listener, {urls: ['http://learn.canterbury.ac.nz/pluginfile.php/*']}, ['blocking', 'responseHeaders']);
+chrome.webRequest.onHeadersReceived.addListener(listener, {urls: ['http://learn.canterbury.ac.nz/pluginfile.php/*', 'https://learn.canterbury.ac.nz/pluginfile.php/*']}, ['blocking', 'responseHeaders']);
