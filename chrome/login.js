@@ -1,3 +1,4 @@
+/*global chrome*/
 chrome.storage.sync.get(['auto_login'], (data) => {
   if (data.auto_login) {
     let button = document.querySelector('form#login button');

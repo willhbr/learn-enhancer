@@ -1,11 +1,12 @@
+/*global chrome*/
+/*global aprilFools*/
 (() => {
-
-  let container = document.getElementById("resourceobject");
+  let container = document.getElementById('resourceobject');
 
   if (container) {
     return window.location.replace(container.data);
   } else {
-    let frame = document.getElementById("cleanSlate");
+    let frame = document.getElementById('cleanSlate');
     if (frame != null) {
       return window.location.replace(frame.src);
     }
@@ -26,22 +27,22 @@
         buttons[0].click();
       }
     }
-    if (data.ignored_courses){
-        data.ignored_courses.forEach((title) => {
-            let node = document.querySelector('.block_course_list [title="' + title + '"]');
-            if (node !== null) {
-                node.parentNode.parentNode.remove();
-            }
-        });
+    if (data.ignored_courses) {
+      data.ignored_courses.forEach((title) => {
+        let node = document.querySelector('.block_course_list [title="' + title + '"]');
+        if (node !== null) {
+          node.parentNode.parentNode.remove();
+        }
+      });
     }
 
   });
   let main = document.getElementById('region-main');
   if (main) {
-    main.className = "span9 pull-right";
+    main.className = 'span9 pull-right';
     let side = document.getElementById('block-region-side-pre');
     if (side) {
-      side.className = "span3 desktop-first-column decaf-border decaf-border-right block-region";
+      side.className = 'span3 desktop-first-column decaf-border decaf-border-right block-region';
     }
   }
 })();

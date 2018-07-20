@@ -1,7 +1,8 @@
+/*global chrome*/
 const models = {
   ignored_courses: {
-    get_value: (elem) => elem.value.split("\n"),
-    show_value: (elem, value) => elem.value = value.join("\n"),
+    get_value: (elem) => elem.value.split('\n'),
+    show_value: (elem, value) => elem.value = value.join('\n'),
     initial_value: []
   },
   auto_login: {
@@ -40,6 +41,6 @@ button.addEventListener('click', () => {
       button.style.backgroundColor = oldBackgroundColor;
       button.style.borderColor = oldBorderColor;
       button.textContent = 'Save';
-    }, 1000)
+    }, 1000);
   });
 });
